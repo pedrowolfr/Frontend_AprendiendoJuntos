@@ -17,3 +17,8 @@ export const userSignUp = async (signUpData) => {
     const res = await axios.post(`${API_URL}/api/register`, signUpData, {});
     return res.data;
   };
+
+  export const bringAllSubjects = async () => {
+    const res = await axios.get(`${API_URL}/api/subjects/list`);
+    return res.data;
+  };
