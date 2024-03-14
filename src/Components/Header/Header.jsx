@@ -26,11 +26,11 @@ export const Header = () => {
   return (
     <Navbar style={{ backgroundColor: "#101010" }} variant="dark" expand="lg" className="text-light" id="navbar">
       <Container>
-        <Navbar.Brand href="#home">Aprendiendo Juntos</Navbar.Brand>
+        <Navbar.Brand href="/">Aprendiendo Juntos</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="Subjects">Asignaturas</Nav.Link>
             <NavDropdown title="Mi cuenta" id="basic-nav-dropdown">
               {!token ? (
