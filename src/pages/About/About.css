@@ -1,0 +1,30 @@
+.about-page h1 {
+  font-size: 36px;
+}
+
+.about-page p {
+  font-size: 18px;
+  color: #666;
+}
+
+.about-page .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.about-page .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.image-3d-frame {
+  padding: 10px;
+  background-color: #0083c0;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 15px 25px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+#image {
+  border-radius: 0.5rem;
+}

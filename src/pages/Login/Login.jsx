@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import { CustomInput } from "../../Components/CustomInput/CustomInput";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
@@ -9,49 +9,50 @@ import { userLogin } from "../../Services/apiCalls";
 import "./Login.css";
 
 export const Login = () => {
-    const  [credentials, setCredentials] = useState({
-        email: "",
-        password: "",
-    });
-    const [loginError, setLoginError] = useState(false);
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  const [loginError, setLoginError] = useState(false);
 
-    const dispatch = useDispatch();
-    const userRdxData = useSelector(userData);
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userRdxData = useSelector(userData);
+  const navigate = useNavigate();
 
-    const inputHandler = (event) => {
-        setCredentials((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value,
-        }));
-    };
+  const inputHandler = (event) => {
+    setCredentials((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
 
-    const buttonHandler = () => {
-        userLogin(credentials)
-        .then((token) => {
-            if (!token) {
-                setLoginError(true);
-                return;
-            }
-            const decodedToken = jwtDecode(token);
-            const data = {
-                token: token,
-                userData: decodedToken,
-            };
-            dispatch(login({ credentials: data }));
+  const buttonHandler = () => {
+    userLogin(credentials)
+      .then((token) => {
+        if (!token) {
+          setLoginError(true);
+          return;
+        }
+        const decodedToken = jwtDecode(token);
+        const data = {
+          token: token,
+          userData: decodedToken,
+        };
+        dispatch(login({ credentials: data }));
         setTimeout(() => {
           navigate("/profile");
         });
       })
       .catch((err) => {
         console.error("Ha ocurrido un error", err);
-        setLoginError(true); 
+        setLoginError(true);
       });
   };
 
   return (
-    <Container className="body">
-     <Row className="justify-content-center">
+    <div className="body">
+      <Container>
+        <Row className="justify-content-center">
           <Col xs={12} md={8} lg={6}>
             <div className="logInBox">
               <h1>Bienvenid@</h1>
@@ -63,7 +64,6 @@ export const Login = () => {
                     name={"email"}
                     handler={inputHandler}
                     placeholder={"Email"}
-                    iconClass={"bi bi-envelope"}
                   />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
@@ -72,7 +72,6 @@ export const Login = () => {
                     name={"password"}
                     handler={inputHandler}
                     placeholder={"Contraseña"}
-                    iconClass={"bi bi-lock"}
                   />
                 </Form.Group>
                 <Button
@@ -95,6 +94,7 @@ export const Login = () => {
             </div>
           </Col>
         </Row>
-    </Container>
-   );
+      </Container>
+    </div>
+  );
 };

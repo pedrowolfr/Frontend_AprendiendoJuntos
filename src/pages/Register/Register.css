@@ -1,13 +1,12 @@
 #signUpBox {
-    background-color: #101010!important;
-    color: #a4a4a4; 
-    width: 48vw;
-    margin: auto;
+  background-color: #101010 !important;
+  color: #a4a4a4;
+  width: 48vw;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  #signUpBox {
+    width: 90%;
   }
-  
-  @media (max-width: 768px) {
-    #signUpBox {
-      width: 90%; 
-    }
-  }
-  
+}
