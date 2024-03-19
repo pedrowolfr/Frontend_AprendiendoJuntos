@@ -19,6 +19,6 @@ export const userSignUp = async (signUpData) => {
   };
 
   export const bringAllSubjects = async () => {
-    const res = await axios.get(`${API_URL}/api/subjects/list`);
+    const res = await axios.get(`${API_URL}/api/subjects/get`);
     return res.data;
   };
