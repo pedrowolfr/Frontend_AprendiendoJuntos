@@ -23,7 +23,7 @@ bringEnrollments(token, myId)
         setMyEnrollments(enrollments);
       })
       .catch((error) => {
-        console.error("Error al obtener inscripciones:", error);
+        console.error("Error al obtener matriculas:", error);
       });
   }, [token, myId]);
 
@@ -49,3 +49,50 @@ bringEnrollments(token, myId)
       setEditMode(true);
     }
   };
+
+  const toggleDetails = () => {
+    setDetailsOpen(!detailsOpen);
+  };
+
+  const handleEditEnrollment = (index) => {
+    const enrollmentsCopy = [...myEnrollments];
+    enrollmentsCopy[index].editable = true;
+    setMyEnrollments(enrollmentsCopy);
+  };
+
+  const handleSaveEnrollment = (index) => {
+    const enrollment = myEnrollments[index];
+    const { id, date, time } = enrollment;
+    updateEnrollment(token, id, { date, time })
+      .then((updatedEnrollment) => {
+        const updatedEnrollments = [...myEnrollments];
+        updatedEnrollments[index] = { ...updatedEnrollment, editable: false };
+        setMyEnrollments(updatedEnrollments);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.error("Error al actualizar la matricula:", error);
+      });
+  };
+
+  const cancelButtonHandler = (id) => {
+    DeleteEnrollment(token, id)
+      .then(() => {
+        const updatedEnrollments = myEnrollments.filter(
+          (enrollment) => enrollment.id !== id
+        );
+        setMyEnrollments(updatedEnrollments);
+      })
+      .catch((error) => {
+        console.error("Error al eliminar la matricula:", error);
+      });
+  };
+
+  return (
+    <>
+    <div className="body">
+
+        
+    </div>
+    </>
+  )
