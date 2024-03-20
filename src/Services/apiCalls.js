@@ -22,3 +22,65 @@ export const userSignUp = async (signUpData) => {
     const res = await axios.get(`${API_URL}/api/subjects/get`);
     return res.data;
   };
+
+  export const bringProfile = async (token, id) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+  
+    const res = await axios.get(`${API_URL}/api/${id}`, config);
+    return res.data;
+  };
+  
+  export const updateProfile = async (token, id, updateData) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+    const res = await axios.patch(`${API_URL}/api/${id}`, updateData, config);
+    return res.data;
+  };
+
+  export const bringEnrollments = async (token, id) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+  
+    const res = await axios.get(
+      `${API_URL}/api/enrollments/mysubjects/${id}`,
+      config
+    );
+    return res.data;
+  };
+  
+  export const updateEnrollment = async (token, id, updatedEnrollment) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+    const res = await axios.patch(
+      `${API_URL}/api/enrollments/${id}`,
+      updatedEnrollment,
+      config
+    );
+    return res.data;
+  };
+  
+  export const deleteEnrollment = async (token, id) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+    const res = await axios.delete(
+      `${API_URL}/api/enrollments/${id}`,
+      config
+    );
+    return res;
+  };

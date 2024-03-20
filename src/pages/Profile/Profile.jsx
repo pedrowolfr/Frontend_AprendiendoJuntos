@@ -6,9 +6,9 @@ import {
   bringEnrollments,
   updateProfile,
   updateEnrollment,
-  DeleteEnrollment,
-} from "../api/profileAPI";
-import { userData } from "../redux/selectors";
+  deleteEnrollment,
+} from "../../Services/apiCalls";
+import { userData } from "../userSlice";
 import "./Profile.css";
 
 export const Profile = () => {
@@ -71,8 +71,8 @@ export const Profile = () => {
 
   const handleSaveEnrollment = (index) => {
     const enrollment = myEnrollments[index];
-    const { id, date, time } = enrollment;
-    updateEnrollment(token, id, { date, time })
+    const { id, enrollment_date } = enrollment;
+    updateEnrollment(token, id, { enrollment_date })
       .then((updatedEnrollment) => {
         const updatedEnrollments = [...myEnrollments];
         updatedEnrollments[index] = { ...updatedEnrollment, editable: false };
@@ -85,7 +85,7 @@ export const Profile = () => {
   };
 
   const cancelButtonHandler = (id) => {
-    DeleteEnrollment(token, id)
+    deleteEnrollment(token, id)
       .then(() => {
         const updatedEnrollments = myEnrollments.filter(
           (enrollment) => enrollment.id !== id
