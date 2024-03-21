@@ -1,0 +1,53 @@
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.text-container,
+.form-container {
+  width: 45%;
+}
+
+.custom-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info {
+  font-weight: 500;
+}
+
+.custom-text {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.icon-ubi {
+  display: flex;
+}
+
+.custom-input {
+  border-bottom: 1px solid #333;
+  color: #555;
+  letter-spacing: 0.06em;
+  outline: none;
+  padding-bottom: 1rem;
+}
+
+.custom-button {
+  display: inline-block;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+  border-radius: 0.75rem;
+}
+
+.custom-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
