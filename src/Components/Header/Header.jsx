@@ -60,7 +60,7 @@ export const Header = () => {
               ) : (
                 <>
                   <NavDropdown.Item href="profile" className="navbar-link">Perfil</NavDropdown.Item>
-                  <NavDropdown.Item href="subjects" className="navbar-link">Asignar revisión</NavDropdown.Item>
+                  <NavDropdown.Item href="subjects" className="navbar-link">Asignaturas</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/" onClick={() => logMeOut()} className="navbar-link">Desconectar</NavDropdown.Item>
                 </>
