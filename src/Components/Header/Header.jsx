@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from '../../assets/top.png';
+import logo from '../../assets/logo_page.png';
 import "./Header.css";
 
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CustomInput } from "../../Components/CustomInput/CustomInput";
+import { LoginInput } from "../../Components/LoginInput/LoginInput";
 import { useDispatch, useSelector } from "react-redux";
 import { login, userData } from "../userSlice";
 import { useNavigate } from "react-router-dom";
@@ -59,7 +59,7 @@ export const Login = () => {
               <h2>Inicia sesión</h2>
               <Form>
                 <Form.Group controlId="formBasicEmail">
-                  <CustomInput
+                  <LoginInput
                     type={"email"}
                     name={"email"}
                     handler={inputHandler}
@@ -67,7 +67,7 @@ export const Login = () => {
                   />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                  <CustomInput
+                  <LoginInput
                     type={"password"}
                     name={"password"}
                     handler={inputHandler}
