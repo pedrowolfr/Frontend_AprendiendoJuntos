@@ -1,0 +1,10 @@
+.title-users {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+    text-align: center;
+    height: 50%;
+    font-size: 60px;
+  }
+  

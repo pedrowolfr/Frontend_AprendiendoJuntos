@@ -3,11 +3,10 @@
     color: #a4a4a4;
     border-radius: 4%;
     margin: 15px auto;
-    width: 30%;
+    width: 70%;
   }
   
   .title-Subjects {
-    color: #000000;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -15,6 +14,5 @@
     text-align: center;
     height: 50%;
     font-size: 60px;
-    margin: 70px;
   }
   

@@ -1,13 +1,17 @@
-.subject-title {
-  text-align: center;
-  font-size: 60px;
-  margin: 50px;
+
+
+.content-wrapper {
+  width: 80%;
 }
 
-.subject-container {
+.subject-title {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  height: 50%;
+  font-size: 60px;
 }
 
 .card-color-1 {
@@ -19,25 +23,19 @@
 }
 
 .card-color-3 {
-  background-color: #9999ff; 
+  background-color: #9999ff;
 }
 
 .subject-card {
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   margin: 20px;
   border-radius: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.subject-info {
-  display: flex;
-  justify-content: center;
-  color: #000000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .subject-name {
-  font-size: 18px;
+  font-size: 40px;
   font-weight: bold;
 }
 

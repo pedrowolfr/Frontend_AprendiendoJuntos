@@ -34,15 +34,15 @@ export const AllSubjects = () => {
 
   return (
     <div className="body">
-      <Container>
+      <div className="container">
         <h1 className="title-Subjects">Asignaturas</h1>
-        <Row xs={1} md={2} lg={3} className="g-4">
+        <div className="row">
           {subjects && subjects.length > 0 ? (
             subjects.map((subject) => (
-              <Col key={subject.id}>
-                <Card className="shadow-sm Subject-card" id="custom-card">
+              <div className="col-md-4 mb-4" key={subject.id}>
+                <Card className="shadow-sm" id="custom-card">
                   <Card.Body>
-                    <Card.Title className="text-center fs-5">
+                    <Card.Title>
                       Asignatura: {subject.subject_name}
                     </Card.Title>
                     <hr />
@@ -69,15 +69,15 @@ export const AllSubjects = () => {
                     </Button>
                   </Card.Body>
                 </Card>
-              </Col>
+                </div>
             ))
           ) : (
             <Col>
               <p className="text-center">No hay asignaturas disponibles.</p>
             </Col>
           )}
-        </Row>
-      </Container>
+        </div>
+        </div>
     </div>
   );
 };
