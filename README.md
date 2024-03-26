@@ -1,13 +1,13 @@
-<h1 align="center">✏️Frontend - Aprendiendo Juntos🤓</h1>
+<h1 align="center">✏️ Frontend - Aprendiendo Juntos 🤓</h1>
 
-<div style="text-align: center;"><img src= "./assets/Logo_Learningto_hori.png" width="500"/></div>
+<div style="text-align: center;"><img src= "./src/assets/Logo_Learningto_hori.png" width="500"/></div>
 
 <details>
   <summary>Contenido 📝</summary>
 <ol>
-  <li><a href="#Objetivo">Objectivo</a></li>
+  <li><a href="#Objetivo">Objetivo</a></li>
   <li><a href="#Tecnologías utilizadas">Tecnologías utilizadas</a></li>
-  <li><a href="#Imagenes">Imagenes</a></li> 
+  <li><a href="#Características">Características</a></li> 
   <li><a href="#Instrucciones de Instalación">Instrucciones de Instalación</a></li>
   <li><a href="#Funcionalidades futuras">Funcionalidades futuras</a></li>
   <li><a href="#Agradecimientos">Agradecimientos</a></li>
@@ -17,6 +17,95 @@
 
 ## Objetivo
 
+El objetivo de este proyecto es crear una plataforma educativa interactiva y personalizada que brinde a los usuarios una experiencia enriquecedora de aprendizaje. La plataforma estará diseñada para ofrecer actividades adaptadas a las necesidades individuales de los estudiantes, con funciones para el seguimiento del progreso, la interacción entre usuarios y la gestión eficiente del contenido educativo. 
+El objetivo principal es brindar un ambiente seguro y divertido donde los niños puedan aprender, crecer y desarrollar sus habilidades de manera significativa.
+
+## Características
+<details>
+<summary>Características de Usuario</summary>
+🔐 Registro sin problemas: los usuarios pueden registrarse sin esfuerzo e ingresar sus datos para configurar una cuenta.
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+🔑 Iniciar sesión: acceda fácilmente a su cuenta a través de un procedimiento de inicio de sesión fácil de usar, lo que garantiza un acceso rápido y conveniente a todas las funcionalidades.
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+📝 Edición del perfil de usuario: ¿Cometió un error durante el registro? No temas, los usuarios tienen el poder de modificar su información sin problemas cuando lo deseen.
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+✏️ Gestión de actividades: ...
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+📚​Explore actividades extraordinarias: disfrute de nuestra selección de actividades.
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+✔️​ Progreso en actividades: seguimiento del rendimiento individual de cada estudiante y evaluar su comprensión y dominio de los conceptos enseñado.
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+</details>
+<details>
+<summary>Características de Maestros</summary>
+
+📅 ...
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+📝 ...
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+
+</details>
+<details>
+<summary>Características del Superadmin</summary>
+
+👤 Gestión de usuarios: empoderar al superadministrador con una supervisión integral, permitiéndole navegar sin problemas a través de todos los perfiles de usuario y administrar de manera eficiente las cuentas de usuario, incluida la capacidad de eliminar usuarios cuando sea necesario.
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+
+📋 ...
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+🚀 ...
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+🗓️ ...
+
+<p align="center">
+  <img src= "./src/assets/.png" />
+</p>
+
+</details>
 
 ## Tecnologías utilizadas
 
@@ -24,13 +113,44 @@
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/devicons/devicon/blob/master/icons/bootstrap/bootstrap-plain.svg"><img src="https://github.com/devicons/devicon/raw/master/icons/bootstrap/bootstrap-plain.svg" title="Bootstrap" alt="Bootstrap" width="40" height="40"></a 
 </p>
 
+## Instrucciones de instalación
+
+1. **Clonar el repositorio:**
+
+   ```bash
+   git clone https://github.com/pedrowolfr/Frontend_AprendiendoJuntos.git
+   cd frontend-aprendiendo
+   ```
+
+2. **Instalar dependencias frontend:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configurar el Backend:**
+
+   - Comience creando una base de datos MySQL.
+   - Siga las instrucciones de instalación del backend proporcionadas en el [Backend App - Aprendiendo Juntos](https://github.com/pedrowolfr/Backend_AprendiendoJuntos.git).
+
+4. **Instalar dependencias de backend:**
+
+   ```bash
+   npm install
+   ```
+
+5. **Iniciar la aplicación:**
+   - Navegue hasta el directorio frontend y ejecute `npm run dev` para iniciar la interfaz.
+   - De manera similar, en el directorio backend, ejecute `npm run dev` para iniciar el servidor backend.
+
+La aplicación será accesible a través de [http://localhost:5173/](http://localhost:5173/) para la interfaz y [http://localhost:3000/](http://localhost:3000/) para el backend.
 
 ## Agradecimientos
 
 Este proyecto ha sido posible gracias a todos los que hacen vida en **GeekHubs Academy**, quienes compartieron sus conocimientos con estusiasmo y mucha dedicación, durante esta etapa de aprendizaje que aun no termina, ademas a mis compañeros, por el apoyo incondicional y muy paciente.:
 
 - **GeekHubs Academy** 
-<a href="https://geekshubsacademy.com/" target="_blank"><img src="./assets/GeeksHubs-Academy-Card.png" style="max-height: 50px; width: 600;" target="_blank"></a>
+<a href="https://geekshubsacademy.com/" target="_blank"><img src="./src/assets/GeeksHubs-Academy-Card.png" style="max-height: 50px; width: 600;" target="_blank"></a>
 
 - **Gabriel Escudillo**  
 <a href="https://github.com/GabrielEscudillo" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a> 
