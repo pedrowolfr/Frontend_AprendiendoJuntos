@@ -13,7 +13,6 @@ export const Profile = () => {
 
   const [editMode, setEditMode] = useState(false);
   const [editableData, setEditableData] = useState({});
-  const [detailsOpen, setDetailsOpen] = useState(false);
 
   useEffect(() => {
     bringProfile(token, myId).then((res) => {
@@ -44,30 +43,18 @@ export const Profile = () => {
     }
   };
 
-  const toggleDetails = () => {
-    setDetailsOpen(!detailsOpen);
-  };
-
   return (
     <div className="body">
        {!!profileData.name ? (
-        <Container className="mt-5">
+        <Container>
           <Card.Title className="profile-card-title">
-            Bienvenido {profileData.nick_name} {profileData.name}
+            Bienvenido {profileData.nick_name}
           </Card.Title>{" "}
           <Row className="justify-content-center">
             <Col md={7} className="mt-md-4">
               <Card className="profile-card">
               {" "}
                 <Card.Body>
-                  <Button
-                    variant="primary"
-                    className="view-details-button"
-                    onClick={toggleDetails}
-                  >
-                    {detailsOpen ? "Ocultar detalles" : "Ver detalles"}
-                  </Button>
-                  {detailsOpen && (
                     <>
                       <ul className="list-group list-group-flush">
                         <li className="list-group-item">
@@ -108,7 +95,6 @@ export const Profile = () => {
                         {editMode ? "Guardar" : "Actualizar detalles"}
                       </Button>
                     </>
-                  )}
                   </Card.Body>
                 </Card>
               </Col>

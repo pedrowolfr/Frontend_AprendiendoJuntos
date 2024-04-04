@@ -1,5 +1,5 @@
 .profile-card {
-  background-color: #797979;
+  background-color: #48c3fc;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
@@ -7,13 +7,14 @@
 }
 
 .profile-card-title {
-  color: #ffffff;
+  color: #000000;
   display: flex;
   justify-content: center;
   font-size: 3.5rem;
 }
 
 .list-group-item {
-  background-color: #101010;
-  color: #a4a4a4; 
+  background-color: #99ff99;
+  color: #000000; 
+  font-size: 1.5rem;
 }
