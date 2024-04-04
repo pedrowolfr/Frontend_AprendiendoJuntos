@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form } from "react-bootstrap";
-import { AllSubjects } from "../../Services/apiCalls";
+import { bringAllSubjects } from "../../Services/apiCalls";
 import { useSelector } from "react-redux";
 
 export const Activities = () => {
@@ -13,7 +13,7 @@ export const Activities = () => {
   const token = userRdxData.credentials.token;
 
   useEffect(() => {
-    AllSubjects(token).then((data) => {
+    bringAllSubjects(token).then((data) => {
       setSubjects(data);
     });
   }, [token]);

@@ -35,7 +35,7 @@ export const Users = () => {
                 <Card className="shadow-sm" id="custom-card">
                   <Card.Body>
                     <Card.Title>
-                      {user.nick_name} {user.name}
+                      {user.nick_name} / {user.name}
                     </Card.Title>
                     <Card.Text>{user.email}</Card.Text>
                     <Button

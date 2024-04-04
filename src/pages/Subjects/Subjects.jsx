@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { AllSubjects } from "../../Services/apiCalls";
+import { bringAllSubjects } from "../../Services/apiCalls";
 import "./Subjects.css";
 
 export const Subjects = () => {
@@ -7,7 +7,7 @@ export const Subjects = () => {
 
   useEffect(() => {
     if (subjects.length === 0) {
-      AllSubjects().then((res) => {
+      bringAllSubjects().then((res) => {
         setSubjects(res.results);
       });
     }
