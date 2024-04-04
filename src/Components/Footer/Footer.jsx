@@ -36,10 +36,10 @@ export const Footer = () => {
                 <a href="#">Home</a>
               </li>
               <li>
-                <a href="#">Nosotros</a>
+                <a href="about">Nosotros</a>
               </li>
               <li>
-                <a href="#">Contáctanos</a>
+                <a href="contact">Contáctanos</a>
               </li>
             </ul>
           </Col>

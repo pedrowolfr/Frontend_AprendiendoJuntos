@@ -50,7 +50,7 @@ export const Header = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/" onClick={() => logMeOut()} className="navbar-link">Desconectar</NavDropdown.Item>
                 </>
-              ) : decoded.userRoles === "teachers" ? (
+              ) : decoded.userRoles === "teacher" ? (
                 <>
                   <NavDropdown.Item href="profile" className="navbar-link">Perfil</NavDropdown.Item>
                   <NavDropdown.Item href="mystudents" className="navbar-link">Estudiantes</NavDropdown.Item>

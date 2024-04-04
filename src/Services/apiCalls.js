@@ -18,8 +18,8 @@ export const userSignUp = async (signUpData) => {
     return res.data;
   };
 
-  export const bringAllSubjects = async () => {
-    const res = await axios.get(`${API_URL}/api/subjects/allsubjects`);
+  export const AllSubjects = async () => {
+    const res = await axios.get(`${API_URL}/api/subjects/list`);
     return res.data;
   };
 
@@ -74,3 +74,16 @@ export const userSignUp = async (signUpData) => {
     return res.data;
   };
 
+  export const bringAllStudents = async (token, id) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+  
+    const res = await axios.get(
+      `${API_URL}/api/students/mysessions/${id}`,
+      config
+    );
+    return res.data;
+  };

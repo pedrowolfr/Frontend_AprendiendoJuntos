@@ -27,7 +27,7 @@ export const Home = () => {
                 <Button className="fw-bold" href="login">
                   Comenzar
                 </Button>
-                <Button className="contact_btn">Contáctanos</Button>
+                <Button className="contact_btn" href="contact">Contáctanos</Button>
               </div>
             </div>
           </Col>
