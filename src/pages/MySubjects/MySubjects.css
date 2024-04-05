@@ -1,0 +1,43 @@
+.content-wrapper {
+    width: 80%;
+  }
+  
+  .subject-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 10px;
+    text-align: center;
+    height: 50%;
+    font-size: 60px;
+  }
+  
+  .card-color-1 {
+    background-color: #ff9999;
+  }
+  
+  .card-color-2 {
+    background-color: #99ff99;
+  }
+  
+  .card-color-3 {
+    background-color: #9999ff;
+  }
+  
+  .subject-card {
+    text-align: center;
+    padding: 15px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .subject-name {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  .no-subjects {
+    text-align: center;
+  }
+  

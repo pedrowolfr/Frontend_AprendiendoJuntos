@@ -9,6 +9,7 @@ import { Contact } from "./Contact/Contact";
 import { Activities } from "./Activities/Activities";
 import { Users } from "./Users/Users";
 import { AllSubjectsPage } from "./AllSubjectsPage/AllSubjectsPage";
+import { MySubjects } from "./MySubjects/MySubjects";
 
 export const Body = () => {
   return (
@@ -20,11 +21,13 @@ export const Body = () => {
         <Route path="/Register" element={<Register />} />
         <Route path="/Subjects" element={<Subjects />} />
         <Route path="/About" element={<About />} />
-        <Route path="/Profile" element={<Profile />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/MySubjects" element={<MySubjects />} />
         <Route path="/Activities" element={<Activities />} />
         <Route path="/Users" element={<Users />} />
         <Route path="/AllSubjectsPage" element={<AllSubjectsPage />} />
+
       </Routes>
     </>
   );

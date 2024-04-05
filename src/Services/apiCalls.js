@@ -33,7 +33,7 @@ export const userSignUp = async (signUpData) => {
     const res = await axios.get(`${API_URL}/api/${id}`, config);
     return res.data;
   };
-  
+
   export const updateProfile = async (token, id, updateData) => {
     const config = {
       headers: {
@@ -41,6 +41,19 @@ export const userSignUp = async (signUpData) => {
       },
     };
     const res = await axios.patch(`${API_URL}/api/${id}`, updateData, config);
+    return res.data;
+  };
+
+  export const fetchEnrollmentData = async (token, id) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+    const res = await axios.get(
+      `${API_URL}/api/subjects/mysubjects/${id}`,
+      config
+    );
     return res.data;
   };
 

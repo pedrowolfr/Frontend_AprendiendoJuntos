@@ -46,21 +46,22 @@ export const Header = () => {
                 <>
                   <NavDropdown.Item href="profile" className="navbar-link">Perfil</NavDropdown.Item>
                   <NavDropdown.Item href="users" className="navbar-link">Usuarios</NavDropdown.Item>
-                  <NavDropdown.Item href="allsubjects" className="navbar-link">Asignaturas</NavDropdown.Item>
+                  <NavDropdown.Item href="allsubjectspage" className="navbar-link">Asignaturas</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/" onClick={() => logMeOut()} className="navbar-link">Desconectar</NavDropdown.Item>
                 </>
               ) : decoded.userRoles === "teacher" ? (
                 <>
                   <NavDropdown.Item href="profile" className="navbar-link">Perfil</NavDropdown.Item>
-                  <NavDropdown.Item href="mystudents" className="navbar-link">Estudiantes</NavDropdown.Item>
+                  <NavDropdown.Item href="allstudents" className="navbar-link">Estudiantes</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/" onClick={() => logMeOut()} className="navbar-link">Desconectar</NavDropdown.Item>
                 </>
               ) : (
                 <>
                   <NavDropdown.Item href="profile" className="navbar-link">Perfil</NavDropdown.Item>
-                  <NavDropdown.Item href="subjects" className="navbar-link">Asignaturas</NavDropdown.Item>
+                  <NavDropdown.Item href="mysubjects" className="navbar-link">Asignaturas</NavDropdown.Item>
+                  <NavDropdown.Item href="activities" className="navbar-link">Actividades</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/" onClick={() => logMeOut()} className="navbar-link">Desconectar</NavDropdown.Item>
                 </>
