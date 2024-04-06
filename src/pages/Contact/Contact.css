@@ -51,3 +51,9 @@
   background-color: #0056b3;
   border-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+  .content-container {
+    width: 90%;
+  }
+}
