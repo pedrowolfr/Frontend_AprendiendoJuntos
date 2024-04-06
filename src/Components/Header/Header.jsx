@@ -26,9 +26,9 @@ export const Header = () => {
   };
 
   return (
-    <Navbar style={{ backgroundColor: "#101010" }} variant="dark" expand="lg" className="text-light" id="navbar">
+    <Navbar style={{ backgroundColor: "#fb9431" }} expand="lg" className="text-light" id="navbar">
       <Container>
-        <Navbar.Brand href="/"> <img src={logo} alt="logo" style={{width:"15%", objectFit:'cover'}}/> </Navbar.Brand>
+        <Navbar.Brand href="/"> <img src={logo} alt="logo" style={{width:"20%", objectFit:'cover'}}/> </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

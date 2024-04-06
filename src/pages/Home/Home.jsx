@@ -8,7 +8,7 @@ import "./Home.css";
 
 export const Home = () => {
   return (
-    <div className="body">
+    <div className="bodyhome">
       <Container>
         <Row>
           <Col md={6}>
@@ -27,7 +27,9 @@ export const Home = () => {
                 <Button className="fw-bold" href="login">
                   Comenzar
                 </Button>
-                <Button className="contact_btn" href="contact">Contáctanos</Button>
+                <Button className="contact_btn" href="contact">
+                  Contáctanos
+                </Button>
               </div>
             </div>
           </Col>
@@ -111,8 +113,8 @@ export const Home = () => {
                     <small className="ms-3 fw-normal">4.8 (14.5k)</small>
                   </h5>
                   <p className="text-secondary">
-                    Descubre lo que nuestros estudiantes tienen que decir sobre
-                    nuestros cursos.
+                    Descubre las experiencias de nuestros estudiantes y
+                    representantes.
                   </p>
                 </div>
               </div>

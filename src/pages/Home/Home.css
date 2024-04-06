@@ -9,6 +9,12 @@
   align-items: center;
 }
 
+.bodyhome {
+  background-image: url("/src/assets/bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .head_left .h_subTitle {
   background: #fcebdc;
   color: #fb9431;
@@ -35,12 +41,4 @@
   border-radius: 0.5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.2),
     0 15px 25px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-.curve {
-  width: 8rem;
-  height: 100%;
-  object-fit: cover;
-}
-.starr {
-  color: #fb9431;
 }
