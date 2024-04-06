@@ -6,10 +6,9 @@
   <summary>Contenido 📝</summary>
 <ol>
   <li><a href="#Objetivo">Objetivo</a></li>
-  <li><a href="#Tecnologías utilizadas">Tecnologías utilizadas</a></li>
   <li><a href="#Características">Características</a></li> 
+  <li><a href="#Tecnologías utilizadas">Tecnologías utilizadas</a></li>
   <li><a href="#Instrucciones de Instalación">Instrucciones de Instalación</a></li>
-  <li><a href="#Funcionalidades futuras">Funcionalidades futuras</a></li>
   <li><a href="#Agradecimientos">Agradecimientos</a></li>
   <li><a href="#Contacto ">Contacto </a></li>
 </ol>
@@ -26,19 +25,19 @@ El objetivo principal es brindar un ambiente seguro y divertido donde los niños
 🔐 Registro sin problemas: los usuarios pueden registrarse sin esfuerzo e ingresar sus datos para configurar una cuenta.
 
 <p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/register.png" />
 </p>
 
 🔑 Iniciar sesión: acceda fácilmente a su cuenta a través de un procedimiento de inicio de sesión fácil de usar, lo que garantiza un acceso rápido y conveniente a todas las funcionalidades.
 
 <p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/login.png" />
 </p>
 
 📝 Edición del perfil de usuario: ¿Cometió un error durante el registro? No temas, los usuarios tienen el poder de modificar su información sin problemas cuando lo deseen.
 
 <p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/profile.png" />
 </p>
 
 ✏️ Gestión de actividades: ...
@@ -55,9 +54,6 @@ El objetivo principal es brindar un ambiente seguro y divertido donde los niños
 
 ✔️​ Progreso en actividades: seguimiento del rendimiento individual de cada estudiante y evaluar su comprensión y dominio de los conceptos enseñado.
 
-<p align="center">
-  <img src= "./src/assets/.png" />
-</p>
 
 </details>
 <details>
@@ -80,29 +76,14 @@ El objetivo principal es brindar un ambiente seguro y divertido donde los niños
 <details>
 <summary>Características del Superadmin</summary>
 
-👤 Gestión de usuarios: empoderar al superadministrador con una supervisión integral, permitiéndole navegar sin problemas a través de todos los perfiles de usuario y administrar de manera eficiente las cuentas de usuario, incluida la capacidad de eliminar usuarios cuando sea necesario.
+👤 Gestión de usuarios: empoderar al superadministrador con una supervisión integral, permitiéndole navegar sin problemas a través de todos los perfiles de usuario y administrar de manera eficiente las cuentas de usuario, incluida la capacidad de eliminar usuarios y asignaturas cuando sea necesario.
 
 <p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/users.png" />
 </p>
 
-
-📋 ...
-
 <p align="center">
-  <img src= "./src/assets/.png" />
-</p>
-
-🚀 ...
-
-<p align="center">
-  <img src= "./src/assets/.png" />
-</p>
-
-🗓️ ...
-
-<p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/allsubjects.png" />
 </p>
 
 </details>
@@ -173,4 +154,4 @@ Este proyecto ha sido posible gracias a todos los que hacen vida en **GeekHubs A
 <img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank" >
 </a> 
 
-[<img src="./assets/top.png" width="60"  align="right"/>](#) 
+[<img src="./src/assets/top.png" width="60"  align="right"/>](#) 
