@@ -9,6 +9,7 @@ import {
   FaPhoneAlt,
   FaWhatsapp,
 } from "react-icons/fa";
+import kids from "../../assets/kids.jpg";
 
 export const Contact = () => {
   const contactData = {
@@ -109,7 +110,16 @@ export const Contact = () => {
             })}
           </div>
         </div>
+
         <form onSubmit={sendEmail} className="form-container">
+          <div>
+            <img
+              src={kids}
+              alt="Imagen de contacto"
+              className="contact-image"
+              id="image"
+            />
+          </div>
           <input
             type="text"
             value={name}
@@ -152,6 +162,7 @@ export const Contact = () => {
           <button className="custom-button">{contactData.form.btnText}</button>
         </form>
       </div>
+
       <ToastContainer
         position="bottom-center"
         autoClose={4000}

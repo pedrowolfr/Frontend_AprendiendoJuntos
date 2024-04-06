@@ -52,6 +52,16 @@
   border-color: #0056b3;
 }
 
+.contact-image {
+  max-width: 80%;
+  margin-bottom: 30px;
+  padding: 10px;
+  background-color: #0083c0;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 15px 25px rgba(0, 0, 0, 0.15), 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
   .content-container {
     width: 90%;
