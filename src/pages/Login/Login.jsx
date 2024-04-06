@@ -54,7 +54,7 @@ export const Login = () => {
       <Container>
         <Row className="justify-content-center">
           <Col xs={12} md={8} lg={6}>
-            <div className="logInBox">
+            <div id="logInBox" className="p-4">
               <h1>Bienvenid@</h1>
               <h2>Inicia sesión</h2>
               <Form>

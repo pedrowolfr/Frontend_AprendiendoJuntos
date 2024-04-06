@@ -1,6 +1,9 @@
 #signUpBox {
-  background-color: #101010 !important;
-  color: #a4a4a4;
+  background-color: #48c3fce1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #415061;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); 
   width: 48vw;
   margin: auto;
 }

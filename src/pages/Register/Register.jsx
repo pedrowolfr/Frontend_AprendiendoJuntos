@@ -67,7 +67,7 @@ export const Register = () => {
   return (
     <div className="body">
       <Container>
-        <div id="signUpBox" className="bg-light p-4 rounded">
+        <div id="signUpBox" className="p-4">
           <h1 className="mb-4">Registro</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formNickName">
