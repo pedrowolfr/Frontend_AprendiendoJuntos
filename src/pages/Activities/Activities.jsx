@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   fetchEnrollmentData,
   bringMyActivities,
-} from "../../Services/apiCalls"; // Asegúrate de importar el nuevo servicio
+} from "../../Services/apiCalls";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
@@ -21,15 +21,13 @@ export const Activities = () => {
           bringMyActivities(token, enrollment.subject.id)
         );
         const activitiesByEnrollment = await Promise.all(activitiesPromises);
-        const myActivities = activitiesByEnrollment.flatMap(
-          (activities, index) => {
-            return activities.map((activity) => ({
-              id: `${index}-${activity.id}`, // Usar un identificador único para cada actividad
-              subjectName: enrollments[index].subject.subject_name,
-              activityName: activity.activity_name,
-              content: activity.content,
-            }));
-          }
+        const myActivities = activitiesByEnrollment.flatMap((activities) =>
+          activities.map((activity) => ({
+            id: activity.id, // Utiliza el id de la actividad como clave
+            subjectName: activity.subjectName, // Utiliza el nombre de la asignatura directamente
+            activityName: activity.activityName,
+            content: activity.content,
+          }))
         );
         setMyActivities(myActivities);
       } catch (error) {
@@ -43,7 +41,7 @@ export const Activities = () => {
   return (
     <div className="body">
       <Container>
-        <h1 className="subject-title">Actividades Matriculadas</h1>
+        <h1 className="subject-title">Actividades</h1>
         <Row xs={1} md={2} lg={3} className="g-4">
           {myActivities.map((activity) => (
             <Col key={activity.id}>
@@ -51,7 +49,7 @@ export const Activities = () => {
                 <Card.Body>
                   <Card.Title>{activity.subjectName}</Card.Title>
                   <Card.Text>
-                    <strong>Actividad:</strong> {activity.activityName}
+                    <strong>Actividad:</strong> {activity.activity_name}
                   </Card.Text>
                   <Card.Text>
                     <strong>Contenido:</strong> {activity.content}

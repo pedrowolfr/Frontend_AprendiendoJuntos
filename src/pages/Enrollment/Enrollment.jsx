@@ -82,7 +82,7 @@ export const Enrollment = () => {
                 id="image"
               />
             </div>
-            <Form.Label style={{ fontSize: "1.5em" }}>Asignatura: </Form.Label>
+            <Form.Label style={{ fontSize: "1.5em" }}>Asignaturas: </Form.Label>
             <Form.Control
               as="select"
               name="subject_id"

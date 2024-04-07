@@ -3,6 +3,7 @@ import { fetchEnrollmentData } from "../../Services/apiCalls";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import "./MySubjects.css";
 
 export const MySubjects = () => {
   const userRdxData = useSelector(userData);
@@ -30,7 +31,9 @@ export const MySubjects = () => {
               <Col key={index}>
                 <Card className="h-100" id="custom-card-profile">
                   <Card.Body>
-                    <Card.Title>{enrollment.subject.subject_name}</Card.Title>
+                    <Card.Title className="my-subject-title">
+                      {enrollment.subject.subject_name}
+                    </Card.Title>
                     <Card.Title>
                       Fecha de Inscripción:{" "}
                       {new Date(
@@ -47,6 +50,6 @@ export const MySubjects = () => {
           </Row>
         </Container>
       )}
-      </div>
+    </div>
   );
 };
