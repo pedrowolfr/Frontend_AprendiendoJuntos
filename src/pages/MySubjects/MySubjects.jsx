@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchEnrollmentData } from "../../Services/apiCalls";
-import "./MySubjects.css";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { Container, Row, Col, Card } from "react-bootstrap";
@@ -10,7 +9,7 @@ export const MySubjects = () => {
   const token = userRdxData.credentials.token;
   const myId = userRdxData.credentials.userData.userId;
   const [MyEnrollments, setMyEnrollments] = useState([]);
-  
+
   useEffect(() => {
     fetchEnrollmentData(token, myId)
       .then((enrollments) => {
@@ -24,21 +23,22 @@ export const MySubjects = () => {
   return (
     <div className="body">
       {MyEnrollments.length > 0 && (
-        <Container className="mt-5">
+        <Container>
           <h1 className="subject-title">Asignaturas Matriculadas</h1>
           <Row xs={1} md={2} lg={3} className="g-4">
             {MyEnrollments.map((enrollment, index) => (
               <Col key={index}>
                 <Card className="h-100" id="custom-card-profile">
                   <Card.Body>
+                    <Card.Title>{enrollment.subject.subject_name}</Card.Title>
                     <Card.Title>
-                      {enrollment.subject.subject_name}
+                      Fecha de Inscripción:{" "}
+                      {new Date(
+                        enrollment.enrollment_date
+                      ).toLocaleDateString()}
                     </Card.Title>
                     <Card.Title>
-                      Fecha de Inscripción: {new Date(enrollment.enrollment_date).toLocaleDateString()}
-                    </Card.Title>
-                    <Card.Title>
-                      Maestro: {enrollment.subject.teacher.teacher_name}
+                      Maestro: {enrollment.subject.teacher.user.name}
                     </Card.Title>
                   </Card.Body>
                 </Card>
@@ -47,6 +47,6 @@ export const MySubjects = () => {
           </Row>
         </Container>
       )}
-    </div>
+      </div>
   );
 };
