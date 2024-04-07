@@ -1,35 +1,52 @@
-import { useEffect, useState } from "react";
-import { fetchEnrollmentData } from "../../Services/apiCalls"; // Asume que tienes un método que trae los datos de enrollment
+import React, { useEffect, useState } from "react";
+import { fetchEnrollmentData } from "../../Services/apiCalls";
 import "./MySubjects.css";
+import { userData } from "../userSlice";
+import { useSelector } from "react-redux";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
-export const MySubjects = ({ enrollmentId }) => {
-  const [enrollmentData, setEnrollmentData] = useState(null);
-
+export const MySubjects = () => {
+  const userRdxData = useSelector(userData);
+  const token = userRdxData.credentials.token;
+  const myId = userRdxData.credentials.userData.userId;
+  const [MyEnrollments, setMyEnrollments] = useState([]);
+  
   useEffect(() => {
-    if (enrollmentId) {
-      fetchEnrollmentData(enrollmentId).then((data) => {
-        setEnrollmentData(data);
+    fetchEnrollmentData(token, myId)
+      .then((enrollments) => {
+        setMyEnrollments(enrollments);
+      })
+      .catch((error) => {
+        console.error("Error fetching enrollments:", error);
       });
-    }
-  }, [enrollmentId]);
+  }, [token, myId]);
 
   return (
     <div className="body">
-      <div className="container">
-        <div className="content-wrapper">
-          <h1 className="subject-title">Detalles de Matrículas</h1>
-          {enrollmentData ? (
-            <div className="enrollment-details">
-              <p><strong>Enrollment ID:</strong> {enrollmentData.enrollment_id}</p>
-              <p><strong>User ID:</strong> {enrollmentData.user_id}</p>
-              <p><strong>Subject ID:</strong> {enrollmentData.subject_id}</p>
-              <p><strong>Enrollment Date:</strong> {new Date(enrollmentData.enrollment_date).toLocaleString()}</p>
-            </div>
-          ) : (
-            <p className="loading-message">Cargando datos de matrículas...</p>
-          )}
-        </div>
-      </div>
+      {MyEnrollments.length > 0 && (
+        <Container className="mt-5">
+          <h1 className="subject-title">Asignaturas Matriculadas</h1>
+          <Row xs={1} md={2} lg={3} className="g-4">
+            {MyEnrollments.map((enrollment, index) => (
+              <Col key={index}>
+                <Card className="h-100" id="custom-card-profile">
+                  <Card.Body>
+                    <Card.Title>
+                      {enrollment.subject.subject_name}
+                    </Card.Title>
+                    <Card.Title>
+                      Fecha de Inscripción: {new Date(enrollment.enrollment_date).toLocaleDateString()}
+                    </Card.Title>
+                    <Card.Title>
+                      Maestro: {enrollment.subject.teacher.teacher_name}
+                    </Card.Title>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      )}
     </div>
   );
 };

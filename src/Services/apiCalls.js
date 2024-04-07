@@ -65,7 +65,7 @@ export const userSignUp = async (signUpData) => {
       },
     };
     const res = await axios.get(
-      `${API_URL}/api/subjects/mysubjects/${id}`,
+      `${API_URL}/api/enrollments/myEnrollments/${id}`,
       config
     );
     return res.data;

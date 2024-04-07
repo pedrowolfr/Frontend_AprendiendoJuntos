@@ -13,7 +13,7 @@ export const Enrollment = () => {
   const token = userRdxData.credentials.token;
   const [newEnrollment, setNewEnrollment] = useState({
     user_id: myId,
-    subject_id: ""
+    subject_id: "",
   });
 
   const [subjects, setSubjects] = useState([]);
@@ -41,13 +41,10 @@ export const Enrollment = () => {
       return;
     }
 
-    // Obtener la fecha actual
     const currentDate = new Date();
 
-    // Formatear la fecha en formato ISO (YYYY-MM-DD) para el campo enrollment_date
-    const formattedDate = currentDate.toISOString().split('T')[0];
+    const formattedDate = currentDate.toISOString().split("T")[0];
 
-    // Agregar enrollment_date y user_id al objeto de datos antes de enviar la solicitud
     const newEnrollmentData = {
       ...newEnrollment,
       enrollment_date: formattedDate,
