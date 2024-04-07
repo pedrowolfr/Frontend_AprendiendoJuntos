@@ -1,111 +1,68 @@
-import React, { useState, useEffect } from "react";
-import { Form } from "react-bootstrap";
-import { bringAllSubjects } from "../../Services/apiCalls";
+import React, { useEffect, useState } from "react";
+import {
+  fetchEnrollmentData,
+  bringMyActivities,
+} from "../../Services/apiCalls"; // Asegúrate de importar el nuevo servicio
+import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 export const Activities = () => {
-  const [subjects, setSubjects] = useState([]);
-  const [activities, setActivities] = useState([]);
-  const [selectedSubject, setSelectedSubject] = useState("");
-  const [selectedActivity, setSelectedActivity] = useState("");
-  const [activityContent, setActivityContent] = useState("");
-  const userRdxData = useSelector((state) => state.userData);
+  const userRdxData = useSelector(userData);
   const token = userRdxData.credentials.token;
+  const myId = userRdxData.credentials.userData.userId;
+  const [myActivities, setMyActivities] = useState([]);
 
   useEffect(() => {
-    bringAllSubjects(token).then((data) => {
-      setSubjects(data);
-    });
-  }, [token]);
-
-  useEffect(() => {
-    if (selectedSubject !== "") {
-      // actividades de prueba
-      const exampleActivities = [
-        { id: 1, name: "Actividad 1", content: "Contenido de la Actividad 1" },
-        { id: 2, name: "Actividad 2", content: "Contenido de la Actividad 2" },
-        { id: 3, name: "Actividad 3", content: "Contenido de la Actividad 3" },
-      ];
-      setActivities(exampleActivities);
-    } else {
-      setActivities([]);
-    }
-  }, [selectedSubject]);
-
-  useEffect(() => {
-    if (selectedActivity !== "") {
-      const selected = activities.find(
-        (activity) => activity.name === selectedActivity
-      );
-      if (selected) {
-        setActivityContent(selected.content);
-      } else {
-        setActivityContent("");
+    const fetchMyActivities = async () => {
+      try {
+        const enrollments = await fetchEnrollmentData(token, myId);
+        const activitiesPromises = enrollments.map((enrollment) =>
+          bringMyActivities(token, enrollment.subject.id)
+        );
+        const activitiesByEnrollment = await Promise.all(activitiesPromises);
+        const myActivities = activitiesByEnrollment.flatMap(
+          (activities, index) => {
+            return activities.map((activity) => ({
+              id: `${index}-${activity.id}`, // Usar un identificador único para cada actividad
+              subjectName: enrollments[index].subject.subject_name,
+              activityName: activity.activity_name,
+              content: activity.content,
+            }));
+          }
+        );
+        setMyActivities(myActivities);
+      } catch (error) {
+        console.error("Error fetching activities:", error);
       }
-    } else {
-      setActivityContent("");
-    }
-  }, [selectedActivity, activities]);
+    };
 
-  const handleSubjectChange = (event) => {
-    setSelectedSubject(event.target.value);
-    setSelectedActivity("");
-  };
-
-  const handleActivityChange = (event) => {
-    setSelectedActivity(event.target.value);
-  };
+    fetchMyActivities();
+  }, [token, myId]);
 
   return (
     <div className="body">
-      <div className="row justify-content-center">
-        <div className="Subject-Box">
-          <Form className="mt-5">
-            <Form.Group controlId="subject" id="subjects">
-              <Form.Label>Asignaturas: </Form.Label>
-              <Form.Control
-                as="select"
-                name="subject"
-                value={selectedSubject}
-                onChange={handleSubjectChange}
-              >
-                <option value="">Selecciona una Asignatura</option>
-                {subjects.map((subject) => (
-                  <option key={subject.id} value={subject.subject_name}>
-                    {subject.subject_name}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
-
-            {selectedSubject !== "" && (
-              <Form.Group controlId="activity" id="activities">
-                <Form.Label>Actividades: </Form.Label>
-                <Form.Control
-                  as="select"
-                  name="activity"
-                  value={selectedActivity}
-                  onChange={handleActivityChange}
-                >
-                  <option value="">Selecciona una Actividad</option>
-                  {activities.map((activity) => (
-                    <option key={activity.id} value={activity.activity_name}>
-                      {activity.activity_name}
-                    </option>
-                  ))}
-                </Form.Control>
-              </Form.Group>
-            )}
-
-            {activityContent !== "" && (
-              <div className="content">
-                <h3>Contenido:</h3>
-                <p>{activityContent}</p>
-              </div>
-            )}
-          </Form>
-        </div>
-      </div>
+      <Container>
+        <h1 className="subject-title">Actividades Matriculadas</h1>
+        <Row xs={1} md={2} lg={3} className="g-4">
+          {myActivities.map((activity) => (
+            <Col key={activity.id}>
+              <Card className="h-100" id="custom-card-profile">
+                <Card.Body>
+                  <Card.Title>{activity.subjectName}</Card.Title>
+                  <Card.Text>
+                    <strong>Actividad:</strong> {activity.activityName}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Contenido:</strong> {activity.content}
+                  </Card.Text>
+                  <Button variant="primary">Ver más</Button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };

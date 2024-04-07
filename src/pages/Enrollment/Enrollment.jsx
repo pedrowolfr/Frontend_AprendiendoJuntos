@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
 import { bringAllSubjects, createEnrollment } from "../../Services/apiCalls";
 import { jwtDecode } from "jwt-decode";
+import fox from "../../assets/fox.png";
 import "./Enrollment.css";
 
 export const Enrollment = () => {
@@ -17,6 +18,8 @@ export const Enrollment = () => {
   });
 
   const [subjects, setSubjects] = useState([]);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertVariant, setAlertVariant] = useState("success");
 
   useEffect(() => {
     if (subjects.length === 0) {
@@ -42,7 +45,6 @@ export const Enrollment = () => {
     }
 
     const currentDate = new Date();
-
     const formattedDate = currentDate.toISOString().split("T")[0];
 
     const newEnrollmentData = {
@@ -58,41 +60,52 @@ export const Enrollment = () => {
           token: token,
           userData: decodedToken,
         };
-        setTimeout(() => {
-          navigate("/profile");
-        });
+        navigate("/profile");
       })
       .catch((err) => {
         console.error("Ha ocurrido un error", err);
+        setAlertVariant("danger");
+        setAlertMessage("Ya estás inscrito en esta asignatura.");
       });
   };
 
   return (
     <div className="body">
-      <div className="row justify-content-center">
-        <div className="enrollment-Box">
-          <Form className="mt-5">
-            <Form.Group controlId="subject_id" id="subjects">
-              <Form.Label>Asignatura: </Form.Label>
-              <Form.Control
-                as="select"
-                name="subject_id"
-                value={newEnrollment.subject_id}
-                onChange={inputHandler}
-              >
-                <option value="">Selecciona Asignatura</option>
-                {subjects.map((subject) => (
-                  <option key={subject.id} value={subject.id}>
-                    {subject.subject_name}
-                  </option>
-                ))}
-              </Form.Control>
-            </Form.Group>
-            <Button variant="primary" onClick={buttonHandler}>
-              Confirmar
-            </Button>
-          </Form>
-        </div>
+      <div className="enrollment-Box">
+        <Form className="mt-5">
+          <Form.Group controlId="subject_id" id="subjects">
+            <div>
+              <img
+                src={fox}
+                alt="Imagen de matricula"
+                className="contact-image"
+                id="image"
+              />
+            </div>
+            <Form.Label style={{ fontSize: "1.5em" }}>Asignatura: </Form.Label>
+            <Form.Control
+              as="select"
+              name="subject_id"
+              value={newEnrollment.subject_id}
+              onChange={inputHandler}
+            >
+              <option value="">Selecciona Asignatura</option>
+              {subjects.map((subject) => (
+                <option key={subject.id} value={subject.id}>
+                  {subject.subject_name}
+                </option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          <Button variant="primary" onClick={buttonHandler}>
+            Inscríbete
+          </Button>
+        </Form>
+        {alertMessage && (
+          <Alert variant={alertVariant} className="mt-3">
+            {alertMessage}
+          </Alert>
+        )}
       </div>
     </div>
   );
