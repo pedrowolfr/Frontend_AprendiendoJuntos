@@ -60,6 +60,7 @@ export const Header = () => {
               ) : (
                 <>
                   <NavDropdown.Item href="profile" className="navbar-link">Perfil</NavDropdown.Item>
+                  <NavDropdown.Item href="enrollment" className="navbar-link">Matricula</NavDropdown.Item>
                   <NavDropdown.Item href="mysubjects" className="navbar-link">Asignaturas</NavDropdown.Item>
                   <NavDropdown.Item href="activities" className="navbar-link">Actividades</NavDropdown.Item>
                   <NavDropdown.Divider />

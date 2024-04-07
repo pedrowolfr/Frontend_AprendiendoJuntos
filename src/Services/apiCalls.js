@@ -44,6 +44,20 @@ export const userSignUp = async (signUpData) => {
     return res.data;
   };
 
+  export const createEnrollment = async (token, enrollmentData) => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
+    const res = await axios.post(
+      `${API_URL}/api/enrollments/newEnrollment/create`,
+      enrollmentData,
+      config
+    );
+    return res;
+  };
+
   export const fetchEnrollmentData = async (token, id) => {
     const config = {
       headers: {
@@ -95,7 +109,7 @@ export const userSignUp = async (signUpData) => {
     };
   
     const res = await axios.get(
-      `${API_URL}/api/students/mysessions/${id}`,
+      `${API_URL}/api/students/${id}`,
       config
     );
     return res.data;
