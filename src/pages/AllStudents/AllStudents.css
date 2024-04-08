@@ -1,18 +1,17 @@
 #custom-card {
-    background-color: rgba(16, 16, 16, 0.945);
-    color: #a4a4a4;
-    border-radius: 4%;
-    margin: 15px auto;
-    width: 70%;
-  }
-  
-  .title-Subjects {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    border-radius: 10px;
-    text-align: center;
-    height: 50%;
-    font-size: 60px;
-  }
-  
+  background-color: rgba(16, 16, 16, 0.945);
+  color: #a4a4a4;
+  border-radius: 4%;
+  margin: 15px auto;
+  width: 70%;
+}
+
+.title-Subjects {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  text-align: center;
+  height: 50%;
+  font-size: 60px;
+}

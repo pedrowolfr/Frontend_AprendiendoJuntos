@@ -42,9 +42,7 @@ export const AllStudents = () => {
               <div className="col-md-4 mb-4" key={student.id}>
                 <Card className="shadow-sm" id="custom-card">
                   <Card.Body>
-                    <Card.Title>
-                      Estudiante: {student.student_name}
-                    </Card.Title>
+                    <Card.Title>Estudiante: {student.student_name}</Card.Title>
                     <hr />
                     <div className="text-center">
                       <p>
@@ -69,7 +67,7 @@ export const AllStudents = () => {
                     </Button>
                   </Card.Body>
                 </Card>
-                </div>
+              </div>
             ))
           ) : (
             <Col>
@@ -77,7 +75,7 @@ export const AllStudents = () => {
             </Col>
           )}
         </div>
-        </div>
+      </div>
     </div>
   );
 };

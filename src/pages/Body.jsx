@@ -29,7 +29,6 @@ export const Body = () => {
         <Route path="/Activities" element={<Activities />} />
         <Route path="/Users" element={<Users />} />
         <Route path="/AllSubjectsPage" element={<AllSubjectsPage />} />
-
       </Routes>
     </>
   );

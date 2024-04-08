@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 import { GrFacebookOption } from "react-icons/gr";
 import { Col, Container, Row } from "react-bootstrap";
@@ -18,14 +18,20 @@ export const Footer = () => {
             <h3>Síguenos</h3>
             <p></p>
             <div className="social-icons">
-              <a href="http://www.facebook.com/" style={{ marginRight: '30px', fontSize: '30px' }}>
-              <GrFacebookOption />
+              <a
+                href="http://www.facebook.com/"
+                style={{ marginRight: "30px", fontSize: "30px" }}
+              >
+                <GrFacebookOption />
               </a>
-              <a href="https://www.instagram.com/" style={{ marginRight: '30px', fontSize: '30px' }}>              
-              <FaInstagram />
+              <a
+                href="https://www.instagram.com/"
+                style={{ marginRight: "30px", fontSize: "30px" }}
+              >
+                <FaInstagram />
               </a>
-              <a href="https://twitter.com/" style={{ fontSize: '30px' }}>          
-              <FaTwitter />
+              <a href="https://twitter.com/" style={{ fontSize: "30px" }}>
+                <FaTwitter />
               </a>
             </div>
           </Col>

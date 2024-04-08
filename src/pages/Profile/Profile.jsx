@@ -45,7 +45,7 @@ export const Profile = () => {
 
   return (
     <div className="body">
-       {!!profileData.name ? (
+      {!!profileData.name ? (
         <Container>
           <Card.Title className="profile-card-title">
             Bienvenido {profileData.nick_name}
@@ -53,56 +53,56 @@ export const Profile = () => {
           <Row className="justify-content-center">
             <Col md={7} className="mt-md-4">
               <Card className="profile-card">
-              {" "}
+                {" "}
                 <Card.Body>
-                    <>
-                      <ul className="list-group list-group-flush">
-                        <li className="list-group-item">
-                          Apodo:{" "}
-                          {editMode ? (
-                            <Form.Control
-                              type="text"
-                              name="nick_name"
-                              value={editableData.nick_name || ""}
-                              onChange={inputHandler}
-                            />
-                          ) : (
-                            profileData.nick_name
-                          )}
-                        </li>
-                        <li className="list-group-item">
-                          Nombre:{" "}
-                          {editMode ? (
-                            <Form.Control
-                              type="text"
-                              name="name"
-                              value={editableData.name || ""}
-                              onChange={inputHandler}
-                            />
-                          ) : (
-                            profileData.name
-                          )}
-                        </li>
-                        <li className="list-group-item">
-                          Correo: {profileData.email}
-                        </li>
-                      </ul>
-                      <Button
-                        variant="primary"
-                        className="mt-3"
-                        onClick={buttonHandler}
-                      >
-                        {editMode ? "Guardar" : "Actualizar detalles"}
-                      </Button>
-                    </>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
-          </Container>
-        ) : (
-          <p>Cargando datos de perfil...</p>
-        )}{" "}
-      </div>
-    );
-  };
+                  <>
+                    <ul className="list-group list-group-flush">
+                      <li className="list-group-item">
+                        Apodo:{" "}
+                        {editMode ? (
+                          <Form.Control
+                            type="text"
+                            name="nick_name"
+                            value={editableData.nick_name || ""}
+                            onChange={inputHandler}
+                          />
+                        ) : (
+                          profileData.nick_name
+                        )}
+                      </li>
+                      <li className="list-group-item">
+                        Nombre:{" "}
+                        {editMode ? (
+                          <Form.Control
+                            type="text"
+                            name="name"
+                            value={editableData.name || ""}
+                            onChange={inputHandler}
+                          />
+                        ) : (
+                          profileData.name
+                        )}
+                      </li>
+                      <li className="list-group-item">
+                        Correo: {profileData.email}
+                      </li>
+                    </ul>
+                    <Button
+                      variant="primary"
+                      className="mt-3"
+                      onClick={buttonHandler}
+                    >
+                      {editMode ? "Guardar" : "Actualizar detalles"}
+                    </Button>
+                  </>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      ) : (
+        <p>Cargando datos de perfil...</p>
+      )}{" "}
+    </div>
+  );
+};
