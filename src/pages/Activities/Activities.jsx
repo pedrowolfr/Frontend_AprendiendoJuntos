@@ -5,13 +5,16 @@ import {
 } from "../../Services/apiCalls";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, Modal } from "react-bootstrap";
+import "./Activities.css";
 
 export const Activities = () => {
   const userRdxData = useSelector(userData);
   const token = userRdxData.credentials.token;
   const myId = userRdxData.credentials.userData.userId;
   const [myActivities, setMyActivities] = useState([]);
+  const [selectedActivity, setSelectedActivity] = useState(null);
+  const [showContentModal, setShowContentModal] = useState(false);
 
   useEffect(() => {
     const fetchMyActivities = async () => {
@@ -21,15 +24,10 @@ export const Activities = () => {
           bringMyActivities(token, enrollment.subject.id)
         );
         const activitiesByEnrollment = await Promise.all(activitiesPromises);
-        const myActivities = activitiesByEnrollment.flatMap((activities) =>
-          activities.map((activity) => ({
-            id: activity.id, // Utiliza el id de la actividad como clave
-            subjectName: activity.subjectName, // Utiliza el nombre de la asignatura directamente
-            activityName: activity.activityName,
-            content: activity.content,
-          }))
+        const allActivities = activitiesByEnrollment.flatMap(
+          (activities) => activities
         );
-        setMyActivities(myActivities);
+        setMyActivities(allActivities);
       } catch (error) {
         console.error("Error fetching activities:", error);
       }
@@ -38,29 +36,62 @@ export const Activities = () => {
     fetchMyActivities();
   }, [token, myId]);
 
+  const handleShowContent = (activity) => {
+    setSelectedActivity(selectedActivity === activity ? null : activity);
+    setShowContentModal(true);
+  };
+
+  const handleCloseContentModal = () => {
+    setShowContentModal(false);
+  };
+
   return (
     <div className="body">
-      <Container>
-        <h1 className="subject-title">Actividades</h1>
-        <Row xs={1} md={2} lg={3} className="g-4">
-          {myActivities.map((activity) => (
-            <Col key={activity.id}>
-              <Card className="h-100" id="custom-card-profile">
-                <Card.Body>
-                  <Card.Title>{activity.subjectName}</Card.Title>
-                  <Card.Text>
-                    <strong>Actividad:</strong> {activity.activity_name}
-                  </Card.Text>
-                  <Card.Text>
-                    <strong>Contenido:</strong> {activity.content}
-                  </Card.Text>
-                  <Button variant="primary">Ver más</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      {myActivities.length > 0 && (
+        <Container className="mt-5">
+          <h3 className="text-center mb-4">Actividades</h3>
+          <Row xs={1} md={2} lg={3} className="g-5">
+            {myActivities.map((activity, index) => (
+              <Col key={index}>
+                <Card className="h-100" id="custom-card">
+                  <Card.Body className="text-center">
+                    <Card.Title>
+                      Actividad:{" "}
+                      {activity.activities.length > 0 &&
+                        activity.activities[0].activity_name}
+                    </Card.Title>
+                    <Button
+                      variant="primary"
+                      onClick={() => handleShowContent(activity)}
+                    >
+                      Ver
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      )}
+      <Modal show={showContentModal} onHide={handleCloseContentModal} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {selectedActivity &&
+              selectedActivity.activities.length > 0 &&
+              selectedActivity.activities[0].activity_name}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {selectedActivity &&
+            selectedActivity.activities.length > 0 &&
+            selectedActivity.activities[0].content}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseContentModal}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
