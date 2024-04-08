@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
-import { bringAllStudents, deleteStudent } from "../../Services/apiCalls"; // Importa la función deleteStudent
-import { Col, Card, Button } from "react-bootstrap";
+import { bringAllStudents } from "../../Services/apiCalls";
+import { Card } from "react-bootstrap";
 import "./AllStudents.css";
+import { userData } from "../userSlice";
 
 export const AllStudents = () => {
   const [students, setStudents] = useState([]);
@@ -11,26 +11,15 @@ export const AllStudents = () => {
   const token = userRdxData.credentials.token;
 
   useEffect(() => {
-    if (students.length === 0) {
-      bringAllStudents(token)
-        .then((res) => {
-          setStudents(res);
-        })
-        .catch((error) => {
-          console.error("Error fetching Students:", error);
-        });
-    }
-  }, [students, token]);
-
-  const removeButtonHandler = (id) => {
-    deleteStudent(token, id)
-      .then(() => {
-        setStudents(students.filter((student) => student.id !== id));
+    bringAllStudents(token)
+      .then((res) => {
+        setStudents(res.results);
+        console.log(res.results);
       })
       .catch((error) => {
-        console.error("Error deleting student:", error);
+        console.error("Error fetching Students:", error);
       });
-  };
+  }, [token]);
 
   return (
     <div className="body">
@@ -38,41 +27,23 @@ export const AllStudents = () => {
         <h1 className="title-Students">Estudiantes</h1>
         <div className="row">
           {students && students.length > 0 ? (
-            students.map((student) => (
-              <div className="col-md-4 mb-4" key={student.id}>
+            students.map((student, index) => (
+              <div className="col-md-4 mb-4" key={student.id + "-" + index}>
                 <Card className="shadow-sm" id="custom-card">
                   <Card.Body>
-                    <Card.Title>Estudiante: {student.student_name}</Card.Title>
+                    <Card.Title>{student.name}</Card.Title>
                     <hr />
                     <div className="text-center">
                       <p>
-                        <strong>Profesor:</strong> {student.teacher_id}
-                      </p>
-                      <p>
-                        <strong>Estudiantes matriculados:</strong>{" "}
-                        {student.enrolled_users.map((user, index) => (
-                          <span key={index}>
-                            {user.nick_name} {user.name}
-                            {index !== student.enrolled_users.length - 1 &&
-                              ", "}
-                          </span>
-                        ))}
+                        <strong>Asignatura:</strong> {student.subject_name}
                       </p>
                     </div>
-                    <Button
-                      variant="danger"
-                      onClick={() => removeButtonHandler(student.id)}
-                    >
-                      Eliminar
-                    </Button>
                   </Card.Body>
                 </Card>
               </div>
             ))
           ) : (
-            <Col>
-              <p className="text-center">No tiene estudiantes asignados.</p>
-            </Col>
+            <p className="text-center">No hay estudiantes matriculados.</p>
           )}
         </div>
       </div>

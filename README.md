@@ -40,19 +40,17 @@ El objetivo principal es brindar un ambiente seguro y divertido donde los niños
   <img src= "./src/assets/profile.png" />
 </p>
 
+📚​Explore asignaturas extraordinarias: disfrute de nuestra selección de actividades.
+
+<p align="center">
+  <img src= "./src/assets/mysubjects.png" />
+</p>
+
 ✏️ Gestión de actividades: ...
 
 <p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/activities.png" />
 </p>
-
-📚​Explore actividades extraordinarias: disfrute de nuestra selección de actividades.
-
-<p align="center">
-  <img src= "./src/assets/.png" />
-</p>
-
-✔️​ Progreso en actividades: seguimiento del rendimiento individual de cada estudiante y evaluar su comprensión y dominio de los conceptos enseñado.
 
 
 </details>

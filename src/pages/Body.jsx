@@ -11,6 +11,7 @@ import { Users } from "./Users/Users";
 import { AllSubjectsPage } from "./AllSubjectsPage/AllSubjectsPage";
 import { MySubjects } from "./MySubjects/MySubjects";
 import { Enrollment } from "./Enrollment/Enrollment";
+import { AllStudents } from "./AllStudents/AllStudents";
 
 export const Body = () => {
   return (
@@ -27,6 +28,7 @@ export const Body = () => {
         <Route path="/Enrollment" element={<Enrollment />} />
         <Route path="/MySubjects" element={<MySubjects />} />
         <Route path="/Activities" element={<Activities />} />
+        <Route path="/AllStudents" element={<AllStudents />} />
         <Route path="/Users" element={<Users />} />
         <Route path="/AllSubjectsPage" element={<AllSubjectsPage />} />
       </Routes>

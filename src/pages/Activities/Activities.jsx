@@ -49,11 +49,11 @@ export const Activities = () => {
     <div className="body">
       {myActivities.length > 0 && (
         <Container className="mt-5">
-          <h3 className="text-center mb-4">Actividades</h3>
+          <h3 className="subject-title">Actividades</h3>
           <Row xs={1} md={2} lg={3} className="g-5">
             {myActivities.map((activity, index) => (
               <Col key={index}>
-                <Card className="h-100" id="custom-card">
+                <Card className="h-100" id="custom-card-activity">
                   <Card.Body className="text-center">
                     <Card.Title>
                       Actividad:{" "}

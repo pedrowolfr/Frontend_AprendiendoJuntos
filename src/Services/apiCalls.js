@@ -122,6 +122,6 @@ export const bringAllStudents = async (token, id) => {
     },
   };
 
-  const res = await axios.get(`${API_URL}/api/students/${id}`, config);
+  const res = await axios.get(`${API_URL}/api/students/getall`, config);
   return res.data;
 };

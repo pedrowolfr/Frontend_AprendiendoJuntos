@@ -25,7 +25,7 @@ export const MySubjects = () => {
     <div className="body">
       {MyEnrollments.length > 0 && (
         <Container>
-          <h1 className="subject-title">Asignaturas Matriculadas</h1>
+          <h1 className="subject-title">Matriculas</h1>
           <Row xs={1} md={2} lg={3} className="g-4">
             {MyEnrollments.map((enrollment, index) => (
               <Col key={index}>
