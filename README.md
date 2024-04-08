@@ -57,16 +57,10 @@ El objetivo principal es brindar un ambiente seguro y divertido donde los niños
 <details>
 <summary>Características de Maestros</summary>
 
-📅 ...
+📝 Gestión de estudiantes: el api les permitira a los maestros gestionar las incripciones y saber en todo momento, la cantidad de estudiantes que tiene por materia.
 
 <p align="center">
-  <img src= "./src/assets/.png" />
-</p>
-
-📝 ...
-
-<p align="center">
-  <img src= "./src/assets/.png" />
+  <img src= "./src/assets/allstudents.png" />
 </p>
 
 
